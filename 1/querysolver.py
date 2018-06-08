@@ -31,8 +31,6 @@ class AddOperator(Operator):
         self.rhs = rhs
 
     def eval(self):
-        pprint.pprint(self.lhs)
-        pprint.pprint(self.rhs)
         return self.lhs.eval() + self.rhs.eval()
 
 class SubOperator(Operator):
@@ -41,8 +39,6 @@ class SubOperator(Operator):
         self.rhs = rhs
 
     def eval(self):
-        pprint.pprint(self.lhs)
-        pprint.pprint(self.rhs)
         return self.lhs.eval() - self.rhs.eval()
 
 class MulOperator(Operator):
@@ -51,8 +47,6 @@ class MulOperator(Operator):
         self.rhs = rhs
 
     def eval(self):
-        pprint.pprint(self.lhs)
-        pprint.pprint(self.rhs)
         return self.lhs.eval() * self.rhs.eval()
 
 class DivOperator(Operator):
@@ -61,9 +55,7 @@ class DivOperator(Operator):
         self.rhs = rhs
 
     def eval(self):
-        pprint.pprint(self.lhs)
-        pprint.pprint(self.rhs)
-        return self.lhs.eval() / self.rhs.eval()
+        return div(self.lhs.eval(), self.rhs.eval())
 
 def div(a, b):
     r = a / b
