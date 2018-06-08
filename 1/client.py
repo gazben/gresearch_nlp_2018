@@ -30,8 +30,13 @@ def handle_rpn(challenge, rpn_evaluator):
     """Handle an RPN challenge"""
     answers = {}
     for question in challenge.questions:
-        answer = rpn_evaluator.evaluate_rpn(question.question)
-        answers[question.tid] = answer
+        try:
+            answer = rpn_evaluator.evaluate_rpn(question.question)
+            answers[question.tid] = answer
+        except Exception as e:
+            print(question.question)
+            print(e)
+            pass
     submission = {'challengeId': challenge.info.cid, 'answers': answers}
     result = webhandler.post_standard_submission(submission)
     print("Mark = {}%".format(result.mark))
